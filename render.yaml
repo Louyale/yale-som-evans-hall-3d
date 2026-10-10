@@ -1,0 +1,12 @@
+# Render Blueprint: hosts the 3D walk-through as a free static site.
+# Render builds it with Vite and serves the dist/ folder.
+services:
+  - type: web
+    name: yale-som-evans-hall-3d
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: false
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
